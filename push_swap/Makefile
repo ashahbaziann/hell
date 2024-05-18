@@ -1,29 +1,57 @@
 NAME = push_swap
 
+BONUS = checker
+
 RM = rm -f
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = operations.c push_swap.c
+SRCS = \
+srcs/validation.c \
+srcs/utils.c \
+srcs/ft_split.c \
+srcs/get_index.c \
+srcs/list_operations.c \
+srcs/main_algorithm.c \
+srcs/math_related.c \
+srcs/operations.c \
+srcs/rotate_operations.c \
+srcs/sort.c \
+srcs/tiny_sort.c \
+gnl/get_next_line.c \
+gnl/get_next_line_utils.c \
+
+BONUS_SRCS = checker.c \
 
 OBJS = $(SRCS:.c=.o)
 
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
 all: $(NAME)
 
-$(NAME): $(OBJS) push_swap.h Makefile
-	cc $(CFLAGS) $(OBJS) -o $(NAME)
-# ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS) push_swap.o include/push_swap.h Makefile
+	cc $(CFLAGS) $(OBJS) push_swap.c  -o $(NAME)
+
+$(BONUS): $(BONUS_OBJS) $(OBJS) include/push_swap.h Makefile
+	cc $(CFLAGS) $(BONUS_OBJS) $(OBJS) -o $(BONUS)
 
 %.o:%.c
 	cc $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(B_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS) push_swap.o
 
 re: fclean all
 
+COUNT = 500
+
+test_checker: $(NAME) $(BONUS_NAME)
+	$(eval ARG = $(shell jot -r $(COUNT) -5000000 5000000))
+	@./push_swap $(ARG) | ./checker $(ARG)
+	@echo  "Instructions "
+	@./push_swap $(ARG) | wc -l
 
 .PHONY: all clean fclean re
