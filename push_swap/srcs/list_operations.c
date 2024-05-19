@@ -35,7 +35,7 @@ t_stack	*ft_new_node(int n)
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		ft_error();
+		return (NULL);
 	new -> num = n;
 	new -> next = NULL;
 	return (new);

@@ -52,7 +52,7 @@ void	ft_sort_main(t_stack **a, t_stack **b, int n, int *arr)
 
 	i = 0;
 	j = get_optimal_value(n);
-	while (i < n)
+	while ((*a) && i < n)
 	{
 		if ((*a)-> num <= arr[i])
 		{

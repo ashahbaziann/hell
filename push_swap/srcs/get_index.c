@@ -24,7 +24,7 @@ int	get_max_index(t_stack **a)
 	tmp = *a;
 	if (!tmp)
 	{
-		return (-1);
+		return (0);
 	}
 	tmp_val = (*a)-> num;
 	while (tmp)
@@ -52,7 +52,7 @@ int	get_min_index(t_stack **a)
 	tmp = *a;
 	if (!tmp)
 	{
-		return (-1);
+		return (0);
 	}
 	tmp_val = (*a)-> num;
 	while (tmp)

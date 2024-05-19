@@ -1,6 +1,6 @@
 NAME = push_swap
 
-BONUS = checker
+BONUS = bonus
 
 RM = rm -f
 
@@ -45,13 +45,5 @@ fclean: clean
 	$(RM) $(NAME) $(BONUS) push_swap.o
 
 re: fclean all
-
-COUNT = 500
-
-test_checker: $(NAME) $(BONUS_NAME)
-	$(eval ARG = $(shell jot -r $(COUNT) -5000000 5000000))
-	@./push_swap $(ARG) | ./checker $(ARG)
-	@echo  "Instructions "
-	@./push_swap $(ARG) | wc -l
 
 .PHONY: all clean fclean re
