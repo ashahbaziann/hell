@@ -33,6 +33,6 @@ int	main(int argc, char **argv)
 	}
 	ft_free(&a);
 	ft_free(&b);
-	//system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }

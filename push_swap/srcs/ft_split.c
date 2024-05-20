@@ -21,12 +21,12 @@ size_t	count_words(char const *s, char c)
 	count = 0;
 	if (!s)
 		return (0);
-	while (s[i] && s[i] != '\n')
+	while (s[i] )
 	{
-		if (s[i] != c || s[i] != '\n')
+		if (s[i] != c )
 		{
 			count++;
-			while (s[i] && (s[i] != c || s[i] != '\n'))
+			while (s[i] && s[i] != c)
 				i++;
 		}
 		else
@@ -64,12 +64,12 @@ char	**arr_mall(char const*s, char **split, char c)
 
 	i = 0;
 	j = 0;
-	while (s[i] && s[i] != '\n')
+	while (s[i])
 	{
-		if (s[i] != c || s[i] != '\n')
+		if (s[i] != c)
 		{
 			index = i;
-			while ((s[i] != c || s[i] != '\n') && s[i])
+			while (s[i] != c && s[i])
 				i++;
 			split[j++] = word_mall(s, index, i);
 		}
