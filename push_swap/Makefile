@@ -4,7 +4,7 @@ BONUS = bonus
 
 RM = rm -f
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I ./include
 
 SRCS = \
 srcs/validation.c \

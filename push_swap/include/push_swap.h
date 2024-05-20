@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "../gnl/get_next_line.h"
+# include "get_next_line.h"
 
 typedef struct s_stack
 {
