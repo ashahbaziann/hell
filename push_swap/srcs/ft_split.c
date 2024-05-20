@@ -39,10 +39,8 @@ char	*word_mall(char const *s, size_t f_occ, size_t l_occ)
 {
 	char	*word;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
 	word = malloc(sizeof(char) * (l_occ - f_occ + 1));
 	if (!word)
 		return (NULL);
