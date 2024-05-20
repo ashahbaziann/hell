@@ -18,6 +18,7 @@ srcs/operations.c \
 srcs/rotate_operations.c \
 srcs/sort.c \
 srcs/tiny_sort.c \
+push_swap.c \
 gnl/get_next_line.c \
 gnl/get_next_line_utils.c \
 
@@ -29,8 +30,8 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) push_swap.o include/push_swap.h Makefile
-	cc $(CFLAGS) $(OBJS) push_swap.c  -o $(NAME)
+$(NAME): $(OBJS) include/push_swap.h Makefile
+	cc $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(BONUS): $(BONUS_OBJS) $(OBJS) include/push_swap.h Makefile
 	cc $(CFLAGS) $(BONUS_OBJS) $(OBJS) -o $(BONUS)
